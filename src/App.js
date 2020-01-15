@@ -10,7 +10,7 @@ const Weather_APi = '90cf146f7b0f427696a90ba83fe5f2f9'
 
 class App extends Component {
   constructor(props) {
-    super(props) 
+    super(props)
 
     this.state = {
       weather: {
@@ -24,7 +24,8 @@ class App extends Component {
         temp_max: undefined,
       },
       error: false,
-      vision: false
+      vision: false,
+      load: false
     }
 
     this.weatherIcon = {
@@ -68,6 +69,7 @@ class App extends Component {
   }
   getWeather = async (url) => {
     try {
+      this.setState({ load: true });
       let data = await fetch(url);
       data = await data.json()
       console.log(data);
@@ -81,7 +83,8 @@ class App extends Component {
           temp_min: this.celsiusConvert(data.main.temp_min),
           temp_max: this.celsiusConvert(data.main.temp_max),
         },
-        vision: true
+        vision: true,
+        load:false
       })
       this.get_WeatherIcon(this.weatherIcon, data.weather[0].id)
     } catch (error) {
@@ -113,8 +116,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Form loadData={ this.loadData } error={this.state.error} />
-        { this.state.vision ? <Weather data={ this.state.weather } /> : null }
+        <Form loadData={ this.loadData } error={ this.state.error } />
+        { this.state.load ? <div class="spinner-border text-success dispaly-1"></div> :
+          this.state.vision ? <Weather data={ this.state.weather } /> : null }
       </div>
     )
   }

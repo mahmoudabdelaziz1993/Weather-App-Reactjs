@@ -14,7 +14,7 @@ export default function Form(props) {
                     </div>
 
                     <div className="col-sm-3 mt-md-0">
-                        <button className="btn btn-success font-weight-bold btn-lg"> Get Weather</button>
+                        <button className="btn btn-success font-weight-bold "> Discover </button>
                     </div>
 
                 </div>

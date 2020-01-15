@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../App.css'
 export default function Weather(props) {
     const { country,
         city,
@@ -10,7 +10,7 @@ export default function Weather(props) {
         temp_min,
         temp_max } = props.data;
     return (
-        <div className="container py-3">
+        <div className="container jumbotron text-white py-3">
             <div className="cards">
                 <h1>{country} , {city}</h1>
                 <h5 className="py-4">

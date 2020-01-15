@@ -36,3 +36,6 @@
     transform: rotate(360deg);
   }
 }
+.jumbotron {
+  background: hsla(200, 3%, 12%, 0.33) !important ;
+}
